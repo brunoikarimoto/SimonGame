@@ -13,6 +13,14 @@ $(document).keypress(() => {
     }
 });
 
+$(document).click(() => {
+    if(!start){
+        nextSequence();
+
+        start = true;
+    }
+});
+
 $('.btn').click(function() {
     let idColor = $(this).attr('id');
 
@@ -84,7 +92,9 @@ function checkAnswer(pos) {
             $('body').removeClass('game-over');
         }, 200);
 
-        startOver();
+        setTimeout(() => {
+            startOver();
+        }, 500);
     }
 }
 
